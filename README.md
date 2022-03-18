@@ -3,7 +3,9 @@
 An Expression evaluator/parser using a chain data structure (linked list)
 
 Example:
-*2+3/4*2*
+```
+2+3/4*2
+```
 
 It will create this structure:
 
