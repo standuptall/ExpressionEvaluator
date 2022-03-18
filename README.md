@@ -7,10 +7,12 @@ Example:
 
 It will create this structure:
 
+```
+
 ---------      ---------      ---------      ---------
 |   2   |  --> |   3   | -->  |   4   |  --> |   2   |
 |   +   |      |   /   |      |   *   |      |       |
 ---------      ---------      ---------      ---------
-
+```
 
 Also can use parenthesis, they will be evaluated making a substitution of their result on the raw string
