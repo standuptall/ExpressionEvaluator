@@ -1,0 +1,16 @@
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\bin\Debug\net5.0\ExpressionEvaluator.exe
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\bin\Debug\net5.0\ExpressionEvaluator.deps.json
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\bin\Debug\net5.0\ExpressionEvaluator.runtimeconfig.json
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\bin\Debug\net5.0\ExpressionEvaluator.runtimeconfig.dev.json
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\bin\Debug\net5.0\ExpressionEvaluator.dll
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\bin\Debug\net5.0\ref\ExpressionEvaluator.dll
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\bin\Debug\net5.0\ExpressionEvaluator.pdb
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\obj\Debug\net5.0\ExpressionEvaluator.csproj.AssemblyReference.cache
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\obj\Debug\net5.0\ExpressionEvaluator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\obj\Debug\net5.0\ExpressionEvaluator.AssemblyInfoInputs.cache
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\obj\Debug\net5.0\ExpressionEvaluator.AssemblyInfo.cs
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\obj\Debug\net5.0\ExpressionEvaluator.csproj.CoreCompileInputs.cache
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\obj\Debug\net5.0\ExpressionEvaluator.dll
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\obj\Debug\net5.0\ref\ExpressionEvaluator.dll
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\obj\Debug\net5.0\ExpressionEvaluator.pdb
+C:\Progetti\Personali\ExpressionEvaluator\ExpressionEvaluator\obj\Debug\net5.0\ExpressionEvaluator.genruntimeconfig.cache
