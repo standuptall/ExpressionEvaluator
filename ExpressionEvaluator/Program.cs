@@ -58,6 +58,42 @@ namespace ExpressionEvaluator
                 Console.WriteLine("Test " + parser.RawExpression + " failed");
                 errCount++;
             }
+            parser = new Parser("2^5-6");
+            if (parser.Result != 26)
+            {
+                Console.WriteLine("Test " + parser.RawExpression + " failed");
+                errCount++;
+            }
+            parser = new Parser("6-2radq(64)");
+            if (parser.Result != -10)
+            {
+                Console.WriteLine("Test " + parser.RawExpression + " failed");
+                errCount++;
+            }
+            parser = new Parser("5");
+            if (parser.Result != 5)
+            {
+                Console.WriteLine("Test " + parser.RawExpression + " failed");
+                errCount++;
+            }
+            parser = new Parser("-5.5*2-0.1");
+            if (parser.Result != -11.1)
+            {
+                Console.WriteLine("Test " + parser.RawExpression + " failed");
+                errCount++;
+            }
+            parser = new Parser("2*4/5*(-1+2)");
+            if (parser.Result != 1.6)
+            {
+                Console.WriteLine("Test " + parser.RawExpression + " failed");
+                errCount++;
+            }
+            parser = new Parser("1947/4+43/4");
+            if (parser.Result != 497.5)
+            {
+                Console.WriteLine("Test " + parser.RawExpression + " failed");
+                errCount++;
+            }
             Console.WriteLine(errCount + " test non passati");
             Console.ReadLine();
         }

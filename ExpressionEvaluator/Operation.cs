@@ -8,7 +8,7 @@ namespace ExpressionEvaluator
 {
     public class Operation
     {
-        private static string[] allowed = new string[] { "+", "-", "*", "/" };
+        private static string[] allowed = new string[] { "+", "-", "*", "/", "^", "radq" };
         private Operation(string symbol) 
         {
 
@@ -28,8 +28,10 @@ namespace ExpressionEvaluator
             {
                 case "+": return arg1 + arg2; 
                 case "-": return arg1 - arg2; 
-                case "/": return arg1 / arg2; 
-                case "*": return arg1 * arg2; 
+                case "/": return arg1 / arg2;
+                case "*": return arg1 * arg2;
+                case "^": return Math.Pow(arg1, arg2);
+                case "radq": return arg1*Math.Sqrt(arg2);
                 default:throw new Exception("Simbolo sconosciuto: " + Symbol);
             }
         }
@@ -47,10 +49,12 @@ namespace ExpressionEvaluator
         {
             switch (Symbol)
             {
-                case "+": return 2;
-                case "-": return 2;
-                case "/": return 1;
-                case "*": return 1;
+                case "+": return 3;
+                case "-": return 3;
+                case "/": return 2;
+                case "*": return 2;
+                case "radq": return 1;
+                case "^": return 1;
                 default: throw new Exception("Simbolo sconosciuto: " + Symbol);
             }
         }
