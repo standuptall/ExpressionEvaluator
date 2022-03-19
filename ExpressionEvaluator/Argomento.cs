@@ -15,20 +15,27 @@ namespace ExpressionEvaluator
                 this.IsNumber = true;
             this.Arg = argument;
         }
-        public Argomento(double argument)
+        public Argomento(double? argument)
         {
-            this.IsNumber = true;
-            this.Arg = argument.ToString();
+            if (!argument.HasValue)
+            {
+                Arg = null;
+            }
+            else
+            {
+                this.IsNumber = true;
+                this.Arg = argument.ToString();
+            }
         }
         public Nodo Prec { get; set; }
         public bool IsNumber { get; }
         public string Arg { get; }
-        public double NumberVal
+        public double? NumberVal
         {
             get
             {
-                if (!IsNumber)
-                    return 0;
+                if (Arg == null)
+                    return null; ;
                 return double.Parse(this.Arg);
             }
         }

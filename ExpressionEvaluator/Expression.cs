@@ -9,16 +9,41 @@ namespace ExpressionEvaluator
 {
     public class Expression
     {
-        public Expression(string toParse)
+        public Expression(string toParse, List<Variabile> variabiles)
         {
+            this.Variables = variabiles;
             var index = 0;
             string substring = toParse;
             Nodo oldNodo = null;
             var count = 0;
+            //verifico se ci sono variabili
+            while (substring.Contains("@"))
+            {
+                var index1 = substring.IndexOf("@");
+                index = index1;
+                string varname = "";
+                while (!Operation.isOperation(substring[index].ToString()))
+                {
+                    varname += substring[index].ToString();
+                    index++;
+                    if (index == substring.Length)
+                        break ;
+                }
+                var onlyname = varname.Substring(1, varname.Length - 1);
+                if (Variables == null || !Variables.Any(c => c.Name.ToLower().Equals(onlyname)))
+                    throw new Exception("Variabile \""+onlyname+"\" non trovata");
+                substring = substring.Replace(varname, 
+                    Variables
+                    .Where(c=>c.Name.ToLower().Equals(onlyname))
+                    .FirstOrDefault()?
+                    .Value
+                    .ToString(CultureInfo.InvariantCulture));
+
+            }
             //trovo prima il numero
             do
             {
-                double arg1 = GetNumber(substring, out index);
+                double? arg1 = GetNumber(substring, out index);
                 substring = substring.Substring(index, substring.Length - index); 
                 if (substring.Length == 0)
                 {
@@ -53,8 +78,9 @@ namespace ExpressionEvaluator
             ;
         }
         public Nodo PrimoNodo { get; }
+        public List<Variabile> Variables { get; internal set; }
 
-        private double GetNumber(string toParse, out int position)
+        private double? GetNumber(string toParse, out int position)
         {
             var substr = toParse;
             string extracted = "";
@@ -74,7 +100,7 @@ namespace ExpressionEvaluator
             }
             position = index;
             if (string.IsNullOrEmpty(extracted))
-                throw new Exception("Error: " + toParse);
+                return null;
             return double.Parse(extracted,CultureInfo.InvariantCulture) * (minus ? -1 : 1);
         }
         public double Evaluate()
@@ -83,7 +109,7 @@ namespace ExpressionEvaluator
             Nodo nodo = PrimoNodo;
 
             if (nodo.Next == null)
-                return nodo.Arg1.NumberVal;
+                return nodo.Arg1.NumberVal ?? 0;
             //====PRIORITA 1=====
             for(int priority = 0; priority < 4; priority++ )
             {
@@ -93,7 +119,7 @@ namespace ExpressionEvaluator
                     if (nodo.Operation?.GetPriority() == priority)
                     {
                         var nextarg = nodo.Next.Arg1;
-                        result = nodo.Operation.GetResult(nodo.Arg1.NumberVal, nextarg.NumberVal);
+                        result = nodo.Operation.GetResult(nodo.Arg1.NumberVal, nextarg.NumberVal.Value);
                         nodo.Arg1 = new Argomento(result);
                         if (nodo.Next.Next == null)
                         {

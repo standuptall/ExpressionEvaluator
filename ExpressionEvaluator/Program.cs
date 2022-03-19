@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ExpressionEvaluator
 {
@@ -6,8 +7,8 @@ namespace ExpressionEvaluator
     {
         static void Main(string[] args)
         {
-            Tests();
-            return;
+            //Tests();
+            //return;
             while (true)
             {
 
@@ -70,6 +71,12 @@ namespace ExpressionEvaluator
                 Console.WriteLine("Test " + parser.RawExpression + " failed");
                 errCount++;
             }
+            parser = new Parser("+5");
+            if (parser.Result != 5)
+            {
+                Console.WriteLine("Test " + parser.RawExpression + " failed");
+                errCount++;
+            }
             parser = new Parser("5");
             if (parser.Result != 5)
             {
@@ -90,6 +97,12 @@ namespace ExpressionEvaluator
             }
             parser = new Parser("1947/4+43/4");
             if (parser.Result != 497.5)
+            {
+                Console.WriteLine("Test " + parser.RawExpression + " failed");
+                errCount++;
+            }
+            parser = new Parser("@variabile+4",new List<Variabile>() { new Variabile("variabile",98) });
+            if (parser.Result != 102)
             {
                 Console.WriteLine("Test " + parser.RawExpression + " failed");
                 errCount++;
